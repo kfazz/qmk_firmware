@@ -1,6 +1,13 @@
 # project specific files
 SRC =	matrix.c \
 	    led.c
+EXTRAKEY_ENABLE = yes   # Audio control and System control
+CONSOLE_ENABLE = yes    # Console for debug
+COMMAND_ENABLE = yes    # Commands for debug and configuration
+SLEEP_LED_ENABLE = yes  # Breathing sleep LED during USB suspend
+NKRO_ENABLE = yes           # USB Nkey Rollover
+CUSTOM_MATRIX = yes     # Custom matrix file
+MOUSEKEY_ENABLE = no
 
 # GENERIC STM32F103C8T6 board - stm32duino bootloader
 #OPT_DEFS = -DCORTEX_VTOR_INIT=0x2000

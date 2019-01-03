@@ -144,16 +144,16 @@ void matrix_print(void){
  */
 //  Modified by Xydane
 static void  init_cols(void){
-  palSetPadMode(GPIOA, 0, PAL_MODE_INPUT_PULLUP);
-  palSetPadMode(GPIOB, 9, PAL_MODE_INPUT_PULLUP);
-  palSetPadMode(GPIOB, 8, PAL_MODE_INPUT_PULLUP);
-  palSetPadMode(GPIOB, 7, PAL_MODE_INPUT_PULLUP);
-  palSetPadMode(GPIOB, 6, PAL_MODE_INPUT_PULLUP);
-  palSetPadMode(GPIOB, 5, PAL_MODE_INPUT_PULLUP);
-  palSetPadMode(GPIOB, 4, PAL_MODE_INPUT_PULLUP);
-  palSetPadMode(GPIOB, 3, PAL_MODE_INPUT_PULLUP);
-  palSetPadMode(GPIOA, 15, PAL_MODE_INPUT_PULLUP);
-  palSetPadMode(GPIOA, 12, PAL_MODE_INPUT_PULLUP);
+  palSetPadMode(GPIOA, 0, PAL_MODE_INPUT);
+  palSetPadMode(GPIOB, 9, PAL_MODE_INPUT);
+  palSetPadMode(GPIOB, 8, PAL_MODE_INPUT);
+  palSetPadMode(GPIOB, 7, PAL_MODE_INPUT);
+  palSetPadMode(GPIOB, 6, PAL_MODE_INPUT);
+  palSetPadMode(GPIOB, 5, PAL_MODE_INPUT);
+  palSetPadMode(GPIOB, 4, PAL_MODE_INPUT);
+  palSetPadMode(GPIOB, 3, PAL_MODE_INPUT);
+  palSetPadMode(GPIOA, 15, PAL_MODE_INPUT);
+  palSetPadMode(GPIOA, 12, PAL_MODE_INPUT);
 }
 
 /* Returns status of switches(1:on, 0:off) */
@@ -175,51 +175,27 @@ static matrix_row_t read_cols(void){
  */
 //  Modified by Xydane
 static void unselect_rows(void){
-  palSetPadMode(GPIOA, 11, PAL_MODE_INPUT);
-  palSetPadMode(GPIOA, 10, PAL_MODE_INPUT);
-  palSetPadMode(GPIOA, 9, PAL_MODE_INPUT);
-  palSetPadMode(GPIOA, 8, PAL_MODE_INPUT);
-  palSetPadMode(GPIOB, 15, PAL_MODE_INPUT);
-  palSetPadMode(GPIOB, 14, PAL_MODE_INPUT);
-  palSetPadMode(GPIOB, 13, PAL_MODE_INPUT);
-  palSetPadMode(GPIOB, 12, PAL_MODE_INPUT);
+  palSetPadMode(GPIOA, 11, PAL_MODE_INPUT_PULLDOWN);
+  palSetPadMode(GPIOA, 10, PAL_MODE_INPUT_PULLDOWN);
+  palSetPadMode(GPIOA,  9, PAL_MODE_INPUT_PULLDOWN);
+  palSetPadMode(GPIOA,  8, PAL_MODE_INPUT_PULLDOWN);
+  palSetPadMode(GPIOB, 15, PAL_MODE_INPUT_PULLDOWN);
+  palSetPadMode(GPIOB, 14, PAL_MODE_INPUT_PULLDOWN);
+  palSetPadMode(GPIOB, 13, PAL_MODE_INPUT_PULLDOWN);
+  palSetPadMode(GPIOB, 12, PAL_MODE_INPUT_PULLDOWN);
 }
 
 //  Modified by Xydane
 static void select_row(uint8_t row){
   (void)row;
   switch (row) {
-    case 0:
-      palSetPadMode(GPIOA, 11, PAL_MODE_OUTPUT_PUSHPULL);
-      palClearPad(GPIOA, 11);
-      break;
-    case 1:
-      palSetPadMode(GPIOA, 10, PAL_MODE_OUTPUT_PUSHPULL);
-      palClearPad(GPIOA, 10);
-      break;
-    case 2:
-      palSetPadMode(GPIOA, 9, PAL_MODE_OUTPUT_PUSHPULL);
-      palClearPad(GPIOA, 9);
-      break;
-    case 3:
-      palSetPadMode(GPIOA, 8, PAL_MODE_OUTPUT_PUSHPULL);
-      palClearPad(GPIOA, 8);
-      break;
-    case 4:
-      palSetPadMode(GPIOB, 15, PAL_MODE_OUTPUT_PUSHPULL);
-      palClearPad(GPIOB, 15);
-      break;
-    case 5:
-      palSetPadMode(GPIOB, 14, PAL_MODE_OUTPUT_PUSHPULL);
-      palClearPad(GPIOB, 14);
-      break;
-    case 6:
-      palSetPadMode(GPIOB, 13, PAL_MODE_OUTPUT_PUSHPULL);
-      palClearPad(GPIOB, 14);
-      break;
-    case 7:
-      palSetPadMode(GPIOB, 12, PAL_MODE_OUTPUT_PUSHPULL);
-      palClearPad(GPIOB, 12);
-      break;
+    case 0: palSetPadMode(GPIOA, 11, PAL_MODE_INPUT_PULLUP); break;
+    case 1: palSetPadMode(GPIOA, 10, PAL_MODE_INPUT_PULLUP); break;
+    case 2: palSetPadMode(GPIOA, 9, PAL_MODE_INPUT_PULLUP); break;
+    case 3: palSetPadMode(GPIOA, 8, PAL_MODE_INPUT_PULLUP); break;
+    case 4: palSetPadMode(GPIOB, 15, PAL_MODE_INPUT_PULLUP); break;
+    case 5: palSetPadMode(GPIOB, 14, PAL_MODE_INPUT_PULLUP); break;
+    case 6: palSetPadMode(GPIOB, 13, PAL_MODE_INPUT_PULLUP); break;
+    case 7: palSetPadMode(GPIOB, 12, PAL_MODE_INPUT_PULLUP); break;
   }
 }
