@@ -27,12 +27,12 @@ const uint16_t keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_NORMAL] = LAYOUT_seventy_ansi(
   KC_ESC, KC_F1,  KC_F2,  KC_F3,  KC_F4,  KC_F5,  KC_F6,  KC_F7,  KC_F8,  KC_F9, \
 KC_GRAVE, KC_1,   KC_2,   KC_3,   KC_4,   KC_5,   KC_6,   KC_7,   KC_8,   KC_F10, \
-  KC_TAB, KC_Q,   KC_W,   KC_E,   KC_R,   KC_T,   KC_Y,   KC_U,   KC_9,   KC_NUMLOCK, \
+  KC_TAB, KC_Q,   KC_W,   KC_E,   KC_R,   KC_T,   KC_Y,   KC_U,   KC_9,   KC_NLCK, \
  KC_LCTL, KC_A,   KC_D,   KC_F,   KC_G,   KC_H,   KC_J,   KC_I,   KC_0,   KC_PAUSE, \
- KC_LSPO, KC_S,   KC_V,   KC_B,   KC_M,   KC_N,   KC_M,   KC_K,   KC_O,   KC_LBRC, \
+ KC_LSPO, KC_S,   KC_V,   KC_B,   KC_M,   KC_N,   KC_K,   KC_O,   KC_MINS,KC_LBRC, \
     KC_Z, KC_X, KC_SPC,  KC_UP,KC_RALT,KC_COMM,   KC_L,   KC_P,   KC_EQL, KC_DEL, \
  KC_CAPS, KC_C,XXXXXXX,KC_LEFT,KC_RCTL, KC_DOT,KC_SCLN,KC_LBRC,  KC_PSCR, KC_BSPC, \
-  KC_FN0,KC_LALT,KC_DOWN,KC_RGHT,KC_RSFT,KC_SLSH,KC_QUOT, KC_RBRC,KC_ENT,KC_NONUS_BSLASH )};
+  KC_FN0,KC_LALT,KC_DOWN,KC_RGHT,KC_RSFT,KC_SLSH,KC_QUOT, KC_RBRC,KC_ENT,KC_BSLS )};
 
 
 
@@ -59,16 +59,16 @@ KC_GRAVE, KC_1,   KC_2,   KC_3,   KC_4,   KC_5,   KC_6,   KC_7,   KC_8,   KC_F10
 uint32_t layer_state_set_user(uint32_t state) {
   switch (biton32(state)) {
   case _FNONE:
-    palSetPad(GPIOA, 0);  //OFF Color A
-    palClearPad(GPIOA, 1); //ON Color B
+ //   palSetPad(GPIOA, 0);  //OFF Color A
+   // palClearPad(GPIOA, 1); //ON Color B
     break;
   case _FNTWO:
-    palClearPad(GPIOA, 0); //ON Color A
-    palClearPad(GPIOA, 1);  //ON Color B
+ //   palClearPad(GPIOA, 0); //ON Color A
+    //palClearPad(GPIOA, 1);  //ON Color B
     break;
   default: //  for any other layers, or the default layer
-    palClearPad(GPIOA, 0); //ON Color A
-    palSetPad(GPIOA, 1);  //OFF Color B
+  //  palClearPad(GPIOA, 0); //ON Color A
+  //  palSetPad(GPIOA, 1);  //OFF Color B
     break;
   }
   return state;
