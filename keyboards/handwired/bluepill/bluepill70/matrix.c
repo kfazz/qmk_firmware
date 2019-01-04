@@ -114,10 +114,10 @@ void matrix_init(void)
   palSetPadMode(GPIOA, 2, PAL_MODE_OUTPUT_PUSHPULL);
   palSetPadMode(GPIOA, 3, PAL_MODE_OUTPUT_PUSHPULL);
 
-/*  palSetPad(GPIOA,1);
-  palSetPad(GPIOA,2); //num without scroll
-  palSetPad(GPIOA,3);// num + scroll
-*/
+/*  palSetPad(GPIOA,1); */ //Caps
+  palClearPad(GPIOA,2); //num without scroll
+  palClearPad(GPIOA,3);// num + scroll
+
 
 /*  palSetPadMode(GPIOA, 15, PAL_MODE_OUTPUT_PUSHPULL);
   palSetPadMode(GPIOA, 12, PAL_MODE_OUTPUT_PUSHPULL);
